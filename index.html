@@ -3,13 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>parsing-kayak-front</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="container">
       {{ message }}
+      <form class="form-inline" action="">
+        <input v-model="date" class="date form-control" type="text">
+        <div v-on:click="sendDate" class="btn btn-primary">Search</div>
+      </form>
+      <ul>
+        <li v-for="item in items">
+          {{ item.company }}
+        </li>
+      </ul>
     </div>
     <!-- built files will be auto injected -->
-    <script src="../node_modules/vue/dist/vue.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./src/main.js"></script>
   </body>
 </html>
