@@ -1,32 +1,14 @@
-// import Vue from 'vue'
-// import BootstrapVue from 'bootstrap-vue'
+import Vue from 'vue'
+import App from './App.vue'
+import BootstrapVue from 'bootstrap-vue'
+import axios from 'axios'
 
-// Vue.use(BootstrapVue);
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css' 
 
-const app = new Vue({
+Vue.use(BootstrapVue);
+
+new Vue({
   el: '#app',
-  data: {
-    message: 'Hello Vue!',
-    items: [],
-    date: ''
-  },
-  created() {
-    axios.get('http://localhost:3000/')
-      .then(res => {
-        console.log('response', res.data);
-        this.items = '';
-        this.items = res.data;
-      })
-      .catch(err => {
-        this.errors.push(err);
-      })
-  },
-  methods: {
-    sendDate: function() {
-      // console.log(this.date);
-      axios.post('http://localhost:3000/date', {
-          'date': this.date
-        }
-      )}
-  }
+  render: h => h(App)
 })
